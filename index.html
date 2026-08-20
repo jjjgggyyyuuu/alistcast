@@ -88,21 +88,12 @@
       font-size: 12px;
       color: #666;
     }
-    .locked {
-      text-align: center;
-      padding: 20px 0;
+    .hint {
+      font-size: 12px;
+      color: #777;
+      margin-top: -14px;
+      margin-bottom: 20px;
     }
-    .locked h2 {
-      font-size: 20px;
-      margin-bottom: 12px;
-    }
-    .locked p {
-      color: #999;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-    #form-section { display: none; }
-    #locked-section { display: none; }
   </style>
 </head>
 <body>
@@ -110,54 +101,36 @@
     <div class="logo">A<span>-</span>List Casting</div>
     <div class="subtitle">Extra Information Form</div>
 
-    <!-- Shown when no valid job link -->
-    <div id="locked-section" class="locked">
-      <h2>Private Link Required</h2>
-      <p>This form is only available through a private link provided by A-List Casting on set.</p>
-    </div>
+    <form action="https://formsubmit.co/salonjg2016@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New Extra Signup - A-List Casting">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" value="https://alistcast.com/thanks.html">
 
-    <!-- Shown when job parameter exists -->
-    <div id="form-section">
-      <form action="https://formsubmit.co/salonjg2016@gmail.com" method="POST">
-        <input type="hidden" name="_subject" value="New Extra Signup - A-List Casting">
-        <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="https://jjjgggyyyuuu.github.io/alistcast/thanks.html">
-        <input type="hidden" id="job-field" name="job_code" value="">
+      <label for="code">Access Code</label>
+      <input type="text" id="code" name="access_code" required placeholder="Code given on set" autocomplete="off">
+      <div class="hint">Enter the code provided by the casting agent</div>
 
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your full name">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required placeholder="Your full name">
 
-        <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" name="phone" required placeholder="(404) 555-1234">
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" name="phone" required placeholder="(404) 555-1234">
 
-        <label for="payment">Preferred Payment Method</label>
-        <select id="payment" name="payment" required>
-          <option value="" disabled selected>Select one</option>
-          <option value="Cash App">Cash App</option>
-          <option value="Venmo">Venmo</option>
-          <option value="Zelle">Zelle</option>
-          <option value="Check">Check</option>
-          <option value="Other">Other</option>
-        </select>
+      <label for="payment">Preferred Payment Method</label>
+      <select id="payment" name="payment" required>
+        <option value="" disabled selected>Select one</option>
+        <option value="Cash App">Cash App</option>
+        <option value="Venmo">Venmo</option>
+        <option value="Zelle">Zelle</option>
+        <option value="Check">Check</option>
+        <option value="Other">Other</option>
+      </select>
 
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+      <button type="submit">Submit</button>
+    </form>
 
     <div class="footer">A-List Casting &middot; Professional Extras Signup</div>
   </div>
-
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const job = params.get('job');
-
-    if (job && job.trim().length > 0) {
-      document.getElementById('job-field').value = job.trim();
-      document.getElementById('form-section').style.display = 'block';
-    } else {
-      document.getElementById('locked-section').style.display = 'block';
-    }
-  </script>
 </body>
 </html>
